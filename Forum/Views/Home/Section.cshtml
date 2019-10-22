@@ -1,0 +1,31 @@
+﻿@model Forum.ViewModels.IndexViewModel;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@foreach (var sect in Model.Sections)
+{
+
+
+    @if (sect.Topics.Count != 0)
+    {
+        @foreach (var topic in sect.Topics)
+        {
+            <div class="container-fluid col-sm-7">
+                <div class="navbar-header">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@topic.TopicName</a>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="container-fluid col-sm-7">
+            <div class="navbar-header">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    Тем нет. Добавить тему
+                </a>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Forum.Models.Section>
+@{
+    ViewBag.Title = "Все разделы";
+}
+
+<table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>|
+                <a asp-action="Edit" asp-controller="Home" asp-route-id="@item.Name">Изменить</a> |
+                <a asp-action="Delete" asp-controller="Home" asp-route-id="@item.Name">Удалить</a>
+            </td>
+        </tr>
+    }
+</table>
